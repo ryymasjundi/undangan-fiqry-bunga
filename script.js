@@ -2,20 +2,7 @@
 const openBtn = document.getElementById("openInvitation");
 const openingScreen = document.getElementById("openingScreen");
 const content = document.getElementById("content");
-
-// musik autoplay setelah tombol diklik
-const music = new Audio("assets/music.mp3");
-music.loop = true;
-// === Pause music saat tab tidak aktif ===
-document.addEventListener("visibilitychange", function() {
-  const music = document.getElementById("music");
-  if (document.hidden) {
-    music.pause();
-  } else {
-    music.play();
-  }
-});
-
+const music = document.getElementById("music"); // ambil dari HTML
 
 // nama tamu dari URL ?to=Nama
 const params = new URLSearchParams(window.location.search);
@@ -31,4 +18,13 @@ openBtn.addEventListener("click", () => {
     content.style.display = "block";
     music.play().catch(err => console.log("Autoplay blocked:", err));
   }, 1000);
+});
+
+// === Pause music saat tab tidak aktif ===
+document.addEventListener("visibilitychange", function() {
+  if (document.hidden) {
+    music.pause();
+  } else {
+    music.play();
+  }
 });

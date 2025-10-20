@@ -34,7 +34,7 @@ body {
 
 .date, .guest-name {
   margin: 10px 0;
-  color: #ffffff;
+  color: #8b6f63;
 }
 
 button {
@@ -54,7 +54,7 @@ button:hover {
 
 .fade-out {
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 2s ease;
 }
 
 /* Konten Utama */

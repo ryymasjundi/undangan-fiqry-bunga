@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   const music = new Audio("https://www.youtube.com/embed/y5xi7ZJfVMU?autoplay=1");
 document.querySelector(".btn-buka").addEventListener("click", () => {
-  const audio = new Audio("https://drive.google.com/uc?export=download&id=ID_MUSIK");
+  const audio = new Audio("https://drive.google.com/uc?export=download&id=1Nns0M3hSt8xd6CtqFP6O3Ryx3ul5hGg6");
   audio.play();
 });
 

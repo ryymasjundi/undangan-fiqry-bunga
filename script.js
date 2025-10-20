@@ -53,6 +53,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
 
+  const music = new Audio("https://www.youtube.com/embed/y5xi7ZJfVMU?autoplay=1");
+document.querySelector(".btn-buka").addEventListener("click", () => {
+  const audio = new Audio("https://drive.google.com/uc?export=download&id=ID_MUSIK");
+  audio.play();
+});
+
+
   // add to calendar
   const addCal = document.getElementById('addCal');
   if(addCal){

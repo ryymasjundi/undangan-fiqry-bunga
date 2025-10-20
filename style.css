@@ -1,141 +1,47 @@
-@import url('https://fonts.cdnfonts.com/css/ocean-trace');
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #0f0f0f;
-  color: #fff;
+  background-color: #fff8f6; /* pastel rose background */
+  color: #5a3b3b; /* coklat lembut */
   overflow-x: hidden;
 }
 
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #0f0f0f;
-  text-align: center;
+  background: linear-gradient(180deg, #fff8f6 0%, #ffe5e0 100%);
 }
 
-.opening-box {
-  animation: fadeIn 1.5s ease;
-}
-
-.title {
-  font-family: 'Ocean Trace', cursive;
-  font-size: 2rem;
-  color: #f6c6b3;
-}
-
-.title span {
-  font-size: 2.5rem;
-  color: #ffb6a3;
-}
-
-.date, .guest-name {
-  margin: 10px 0;
-  color: #f0e1db;
-}
-
-button {
+button, .wa-button {
   background-color: #f6c6b3;
-  border: none;
-  padding: 12px 24px;
-  color: #0f0f0f;
-  font-weight: bold;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  color: #4b2e2e;
 }
 
-button:hover {
+button:hover, .wa-button:hover {
   background-color: #ffb6a3;
 }
 
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-/* Konten Utama */
 .hero {
-  position: relative;
-  height: 100vh;
   background: url('assets/prewed1.png') center/cover no-repeat;
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 15, 15, 0.6);
+  background: rgba(255, 248, 246, 0.4);
 }
 
-.hero-text {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
-}
-
-.hero-text h2 {
-  font-family: 'Ocean Trace', cursive;
-  color: #f6c6b3;
-  font-size: 2.8rem;
-}
-
-.hero-text p {
-  color: #fff;
-  font-size: 1.2rem;
-}
-
-.section {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.section h3 {
-  color: #f6c6b3;
-}
-
-.couple {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.and {
-  font-size: 2rem;
-  color: #f6c6b3;
-}
-
-.info {
-  margin-top: 20px;
-  line-height: 1.8;
-}
-
-.gallery {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 30px;
-}
-
-.gallery img {
-  width: 30%;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(255, 182, 163, 0.3);
+h3 {
+  color: #c27b64;
 }
 
 footer {
-  text-align: center;
-  padding: 30px;
-  color: #f6c6b3;
+  background: #ffe5e0;
+  color: #a16a5b;
+  padding: 40px 0;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.wa-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
 }

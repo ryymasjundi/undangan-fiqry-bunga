@@ -3,133 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Undangan Pernikahan Fiqry & Bunga</title>
-
-  <!-- Font Ocean Trace -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #000;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      transition: background-image 1s ease-in-out;
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background-color: rgba(255, 255, 255, 0.3);
-      z-index: 1;
-    }
-
-    .container {
-      z-index: 2;
-      text-align: center;
-      backdrop-filter: blur(2px);
-      padding: 30px;
-    }
-
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3em;
-      color: #111;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 1.8em;
-      color: #222;
-      margin-bottom: 5px;
-    }
-
-    p {
-      font-size: 1.1em;
-      color: #333;
-      margin-bottom: 25px;
-    }
-
-    .guest-name {
-      font-size: 1.2em;
-      font-weight: 500;
-      color: #000;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 40px;
-      font-size: 1em;
-      color: #fff;
-      background: linear-gradient(45deg, #d4a373, #b76e79);
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(183, 110, 121, 0.5);
-    }
-
-    audio {
-      display: none;
-    }
-  </style>
+  <title>Undangan Fiqry & Bunga</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.cdnfonts.com/css/ocean-trace" rel="stylesheet">
 </head>
 <body>
-  <div class="overlay"></div>
-  <div class="container">
-    <h2>Undangan Pernikahan</h2>
-    <h1>Fiqry & Bunga</h1>
-    <p>Sabtu, 6 Juni 2026 • 10.00 WIB</p>
-    <div class="guest-name">Kepada Yth. <span id="guestName">Tamu Undangan</span></div>
-    <a href="#" class="btn" id="openInvitation">Buka Undangan</a>
-  </div>
+  <!-- Halaman Pembuka -->
+  <section id="openingScreen" class="center">
+    <div class="opening-box">
+      <h1 class="title">Undangan Pernikahan<br><span>Fiqry & Bunga</span></h1>
+      <p class="date">Sabtu, 06 Juni 2026 • 10.00 WIB</p>
+      <p class="guest-name" id="guestName">Kepada Yth. <br> Tamu Undangan</p>
+      <button id="openInvitation">Buka Undangan</button>
+    </div>
+  </section>
 
-  <audio id="bgMusic" src="assets/music.mp3" preload="auto"></audio>
+  <!-- Isi Undangan -->
+  <section id="content" style="display:none;">
+    <div class="hero">
+      <div class="overlay"></div>
+      <div class="hero-text">
+        <h2>Fiqry & Bunga</h2>
+        <p>06 Juni 2026 • 10.00 WIB</p>
+      </div>
+    </div>
 
-  <script>
-    // Ganti background secara acak
-    const backgrounds = [
-      "assets/prewed1.png",
-      "assets/prewed2.png",
-      "assets/prewed3.png"
-    ];
-    document.body.style.backgroundImage = `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]})`;
+    <div class="section">
+      <h3>Dengan Hormat</h3>
+      <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan kami:</p>
+      <div class="couple">
+        <div>
+          <h4>Fiqry Masjundi</h4>
+        </div>
+        <p class="and">&amp;</p>
+        <div>
+          <h4>Bunga Cahyaning</h4>
+        </div>
+      </div>
 
-    // Ambil nama tamu dari URL parameter ?to=
-    const params = new URLSearchParams(window.location.search);
-    const guest = params.get("to");
-    if (guest) document.getElementById("guestName").textContent = decodeURIComponent(guest);
+      <p class="info">
+        Acara akan dilaksanakan pada:<br><br>
+        <b>Sabtu, 06 Juni 2026</b><br>
+        Pukul 10.00 WIB<br>
+        <b>Gedung Serbaguna Bahagia, Bandung</b>
+      </p>
+    </div>
 
-    // Mainkan musik setelah klik tombol
-    const btn = document.getElementById("openInvitation");
-    const music = document.getElementById("bgMusic");
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      music.play();
-      btn.textContent = "Memuat...";
-      btn.style.pointerEvents = "none";
-      setTimeout(() => {
-        window.location.href = "main.html"; // halaman utama undangan nanti
-      }, 1500);
-    });
-  </script>
+    <div class="gallery">
+      <img src="assets/prewed1.png" alt="Prewed 1">
+      <img src="assets/prewed2.png" alt="Prewed 2">
+      <img src="assets/prewed3.png" alt="Prewed 3">
+    </div>
+
+    <footer>
+      <p>Dengan Cinta,<br>Fiqry & Bunga</p>
+    </footer>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>

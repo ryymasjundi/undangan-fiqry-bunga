@@ -1,103 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Undangan • Fiqry & Bunga</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Undangan Pernikahan Fiqry & Bunga — 6 Juni 2026">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan Fiqry & Bunga</title>
+
+  <!-- Font Ocean Trace -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 1s ease-in-out;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.3);
+      z-index: 1;
+    }
+
+    .container {
+      z-index: 2;
+      text-align: center;
+      backdrop-filter: blur(2px);
+      padding: 30px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .guest-name {
+      font-size: 1.2em;
+      font-weight: 500;
+      color: #000;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 40px;
+      font-size: 1em;
+      color: #fff;
+      background: linear-gradient(45deg, #d4a373, #b76e79);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(183, 110, 121, 0.5);
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <!-- COVER -->
-  <div id="cover" class="cover">
-    <div class="cover-card">
-      <div class="cover-text">
-        <div class="couple">Fiqry &amp; Bunga</div>
-        <div class="date">6 Juni 2026 · 10.00 WIB</div>
-        <button id="openBtn" class="btn">Buka Undangan</button>
-      </div>
-    </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <h2>Undangan Pernikahan</h2>
+    <h1>Fiqry & Bunga</h1>
+    <p>Sabtu, 6 Juni 2026 • 10.00 WIB</p>
+    <div class="guest-name">Kepada Yth. <span id="guestName">Tamu Undangan</span></div>
+    <a href="#" class="btn" id="openInvitation">Buka Undangan</a>
   </div>
 
-  <!-- MAIN -->
-  <div id="app" class="hidden">
-    <header class="hero">
-      <img id="heroImg" class="hero-img" alt="Foto pasangan" src="https://drive.google.com/uc?export=view&id=1nxdg2b3mHRgY5__8oJZqeSJXIRybQ14_" />
-      <div class="hero-text">
-        <h1>Fiqry &amp; Bunga</h1>
-        <p class="sub">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang kehadiran anda</p>
-        <div class="names">6 Juni 2026 · 10.00 WIB</div>
-      </div>
-    </header>
+  <audio id="bgMusic" src="assets/music.mp3" preload="auto"></audio>
 
-    <main class="container">
-      <section class="left">
-        <div class="card">
-          <h2>Detail Acara</h2>
-          <p>Acara akan diselenggarakan pada:</p>
-          <p><strong>Hari, Tanggal:</strong> Sabtu, 6 Juni 2026</p>
-          <p><strong>Waktu:</strong> 10.00 WIB</p>
-          <p><strong>Tempat:</strong> Gedung Serbaguna Cikal Harapan</p>
-          <div class="actions">
-            <button class="btn" id="rsvpBtn">Konfirmasi Kehadiran</button>
-            <button class="btn ghost" id="addCal">Tambah ke Kalender</button>
-          </div>
-        </div>
+  <script>
+    // Ganti background secara acak
+    const backgrounds = [
+      "assets/prewed1.png",
+      "assets/prewed2.png",
+      "assets/prewed3.png"
+    ];
+    document.body.style.backgroundImage = `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]})`;
 
-        <div class="card gallery-card">
-          <h3>Galeri</h3>
-          <div class="gallery" id="gallery">
-            <img src="assets/prewed1.jpg" alt="foto1">
-            <img src="assets/prewed2.jpg" alt="foto2">
-            <img src="assets/prewed3.jpg" alt="foto3">
-          </div>
-        </div>
+    // Ambil nama tamu dari URL parameter ?to=
+    const params = new URLSearchParams(window.location.search);
+    const guest = params.get("to");
+    if (guest) document.getElementById("guestName").textContent = decodeURIComponent(guest);
 
-        <div class="card">
-          <h3>Catatan</h3>
-          <p>RSVP akan disimpan ke Google Spreadsheet (opsi integrasi tersedia — nanti akan aku bantu sambungkan).</p>
-        </div>
-      </section>
-
-      <aside class="right">
-        <div class="card">
-          <h3>Lokasi</h3>
-          <div class="map-wrap">
-            <!-- user-provided map iframe -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9734.641698058946!2d107.04032565776114!3d-6.454125749903912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69963a14e6549b%3A0x5801f1af01ece425!2sMasjid%20Cikal%20Harapan!5e0!3m2!1sid!2sid!4v1760955812237!5m2!1sid!2sid" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <div class="address">Gedung Serbaguna Cikal Harapan, Citra Indah City, Jonggol</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Sampai Hari H</h3>
-          <div class="countdown" id="countdown">
-            <div class="box"><span id="d">00</span><small>Hari</small></div>
-            <div class="box"><span id="h">00</span><small>Jam</small></div>
-            <div class="box"><span id="m">00</span><small>Menit</small></div>
-            <div class="box"><span id="s">00</span><small>Detik</small></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Konfirmasi Kehadiran</h3>
-          <form id="rsvpForm" class="rsvp-form">
-            <label>Nama tamu</label>
-            <input id="guestName" placeholder="Nama lengkap" required />
-            <label>Jumlah yang hadir</label>
-            <select id="guestCount"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
-            <label>Pesan / Ucapan (opsional)</label>
-            <textarea id="guestMsg" rows="3" placeholder="Contoh: Sukses ya!"></textarea>
-            <button type="submit" class="btn" style="width:100%;margin-top:8px">Kirim</button>
-            <div id="rsvpResult" class="small" style="margin-top:8px;color:green;display:none">Terima kasih — konfirmasi tersimpan di browser Anda.</div>
-          </form>
-        </div>
-
-    <footer class="footer">
-      Dibuat dengan ♥ oleh Fiqry &amp; Bunga
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
+    // Mainkan musik setelah klik tombol
+    const btn = document.getElementById("openInvitation");
+    const music = document.getElementById("bgMusic");
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      music.play();
+      btn.textContent = "Memuat...";
+      btn.style.pointerEvents = "none";
+      setTimeout(() => {
+        window.location.href = "main.html"; // halaman utama undangan nanti
+      }, 1500);
+    });
+  </script>
 </body>
 </html>

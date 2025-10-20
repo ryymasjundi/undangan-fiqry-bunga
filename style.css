@@ -1,0 +1,48 @@
+/* Putih - Rose Gold elegan */
+:root{
+  --bg: #fbfaf8;
+  --card: #ffffff;
+  --rose: #cfa07a;
+  --muted: #6b6b6b;
+  --accent: linear-gradient(90deg, rgba(207,160,122,1), rgba(255,235,230,1));
+  --glass: rgba(255,255,255,0.7);
+  --radius: 14px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#222}
+.hidden{display:none}
+.container{max-width:980px;margin:20px auto;display:grid;grid-template-columns:1fr 360px;gap:24px;padding:16px}
+.hero{display:flex;gap:20px;align-items:center;padding:24px;background:transparent}
+.hero-img{width:140px;height:140px;border-radius:12px;object-fit:cover;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+.hero-text h1{margin:0;font-size:24px;letter-spacing:0.4px}
+.hero-text .sub{color:var(--muted);margin-top:6px}
+.couple{font-size:36px;font-weight:600;letter-spacing:1px;text-align:center}
+.date{color:var(--muted);margin-top:8px}
+.card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 24px rgba(20,20,20,0.06);margin-bottom:12px}
+.gallery{display:flex;gap:10px;margin-top:8px}
+.gallery img{width:100px;height:100px;object-fit:cover;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.right{display:flex;flex-direction:column;gap:12px}
+.map-wrap iframe{width:100%;height:180px;border-radius:10px;border:0}
+.address{font-size:13px;color:var(--muted);margin-top:8px}
+.countdown{display:flex;gap:8px;align-items:center}
+.countdown .box{background:var(--card);padding:12px;border-radius:10px;min-width:56px;text-align:center;box-shadow:inset 0 -2px 0 rgba(0,0,0,0.02)}
+.countdown small{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+.rsvp-form input, .rsvp-form textarea, .rsvp-form select{width:100%;padding:8px;border-radius:8px;border:1px solid #eee;margin-top:8px}
+.btn{background:linear-gradient(90deg,#cfa07a,#f7d9c0);border:0;padding:10px 14px;border-radius:10px;color:#fff;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--rose)}
+.footer{max-width:980px;margin:20px auto;padding:12px;text-align:center;color:var(--muted);font-size:14px}
+
+/* COVER */
+.cover{position:fixed;inset:0;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,248,246,0.95));display:flex;align-items:center;justify-content:center;z-index:40}
+.cover-card{background:var(--card);padding:36px;border-radius:18px;box-shadow:0 30px 60px rgba(10,10,10,0.08);text-align:center;max-width:720px;width:90%}
+.cover .couple{font-size:48px;font-weight:700;color:#b66f40}
+.cover .date{margin-top:8px;color:var(--muted)}
+.cover .btn{margin-top:18px;padding:12px 18px;font-size:16px}
+
+/* responsive */
+@media (max-width:880px){
+  .container{grid-template-columns:1fr; padding:12px}
+  .cover-card{padding:24px}
+  .couple{font-size:28px}
+}

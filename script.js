@@ -6,6 +6,16 @@ const content = document.getElementById("content");
 // musik autoplay setelah tombol diklik
 const music = new Audio("assets/music.mp3");
 music.loop = true;
+// === Pause music saat tab tidak aktif ===
+document.addEventListener("visibilitychange", function() {
+  const music = document.getElementById("music");
+  if (document.hidden) {
+    music.pause();
+  } else {
+    music.play();
+  }
+});
+
 
 // nama tamu dari URL ?to=Nama
 const params = new URLSearchParams(window.location.search);

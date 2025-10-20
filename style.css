@@ -138,37 +138,6 @@ footer {
   background-color: #fffaf8;
 }
 
-/* === Versi Konsisten untuk PC & HP === */
-.container {
-  max-width: 480px; /* batas lebar tampilan seperti di HP */
-  margin: 0 auto;   /* biar di tengah */
-  background-color: rgba(255, 255, 255, 0.05); /* lembut transparan */
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-}
-
-/* biar background tetap full tapi konten rapi di tengah */
-body {
-  background: linear-gradient(180deg, #fce9e4, #ffeef2);
-  background-attachment: fixed;
-}
-
-/* teks dan warna lembut */
-.title, .hero-text h2, .section h3, footer {
-  color: #d08b73 !important; /* rose gold lembut */
-}
-
-/* tombol tetap kontras dan elegan */
-button {
-  background-color: #eeb5a1;
-  color: #fff;
-}
-
-button:hover {
-  background-color: #d08b73;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }

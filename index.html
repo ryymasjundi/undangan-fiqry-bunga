@@ -4,150 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Undangan Fiqry & Bunga</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.cdnfonts.com/css/ocean-trace" rel="stylesheet">
+
+  <!-- Tambahan CSS untuk bunga jatuh overlay -->
   <style>
-    body {
-      margin: 0;
-      font-family: 'Ocean Trace', sans-serif;
-      background: #fff0f5;
-      overflow-x: hidden;
-    }
-
-    /* ===== Halaman Pembuka ===== */
-    .center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    .opening-box {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 50px;
-      border-radius: 20px;
-      border: 8px solid;
-      border-image: linear-gradient(45deg, #fbc2eb, #a6c1ee) 1;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    .opening-box h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .opening-box h1 span {
-      font-size: 1.2em;
-      display: block;
-      margin-top: 10px;
-      color: #ff69b4;
-    }
-
-    .opening-box p {
-      margin: 10px 0;
-    }
-
-    #openInvitation {
-      padding: 10px 25px;
-      font-size: 1em;
-      border: none;
-      border-radius: 10px;
-      background: #fbc2eb;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    #openInvitation:hover {
-      background: #a6c1ee;
-      color: white;
-    }
-
-    /* ===== Isi Undangan ===== */
-    #content {
-      display: none;
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .hero {
-      position: relative;
-      height: 300px;
-      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
-      margin-bottom: 30px;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .hero .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(255,255,255,0.2);
-    }
-
-    .hero-text {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #fff;
-    }
-
-    .section {
-      margin-bottom: 30px;
-    }
-
-    .couple {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 20px 0;
-    }
-
-    .couple p.and {
-      margin: 0 15px;
-      font-size: 1.5em;
-    }
-
-    .gallery img {
-      width: 30%;
-      margin: 1%;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    .wa-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #25D366;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-
-    .wa-button:hover {
-      background: #128C7E;
-    }
-
-    footer {
-      text-align: center;
-      margin: 40px 0;
-      font-style: italic;
-    }
-
-    /* ===== Ornamen Bunga Jatuh ===== */
     .petal {
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      background: pink;
-      border-radius: 50%;
+      position: fixed;
+      top: -30px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
       opacity: 0.8;
-      animation: fall linear infinite;
       pointer-events: none;
+      animation: fall linear infinite;
+      background: radial-gradient(circle at 30% 30%, #ffb6c1 0%, #ff69b4 80%);
     }
 
     @keyframes fall {
@@ -170,7 +41,7 @@
   </section>
 
   <!-- Isi Undangan -->
-  <section id="content">
+  <section id="content" style="display:none;">
     <div class="hero">
       <div class="overlay"></div>
       <div class="hero-text">
@@ -183,13 +54,9 @@
       <h3>Dengan Hormat</h3>
       <p>Assalamu’alaikum Warahmatullahi Wabarakatuh, Dengan memohon rahmat dan ridho Allah SWT, Kami Mengundang Bapak/Ibu/Saudara/i, untuk menghadiri acara pernikahan kami.</p>
       <div class="couple">
-        <div>
-          <h4>Fiqry Masjundi</h4>
-        </div>
+        <div><h4>Fiqry Masjundi</h4></div>
         <p class="and">&amp;</p>
-        <div>
-          <h4>Bunga Edelweiss</h4>
-        </div>
+        <div><h4>Bunga Edelweiss</h4></div>
       </div>
 
       <p class="info">
@@ -211,16 +78,12 @@
     <div class="section">
       <h3>Lokasi Acara</h3>
       <div class="maps-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9734.641698058946!2d107.04032565776114!3d-6.454125749903912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69963a14e6549b%3A0x5801f1af01ece425!2sMasjid%20Cikal%20Harapan!5e0!3m2!1sid!2sid!4v1760955812237!5m2!1sid!2sid"
-          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9734.641698058946!2d107.04032565776114!3d-6.454125749903912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69963a14e6549b%3A0x5801f1af01ece425!2sMasjid%20Cikal%20Harapan!5e0!3m2!1sid!2sid!4v1760955812237!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
 
       <h3>Konfirmasi Kehadiran</h3>
       <p class="info">Mohon konfirmasi kehadiran Anda melalui tombol di bawah ini:</p>
-      <a href="https://wa.me/6289611502974?text=Halo%20Fiqry%20%26%20Bunga,%20saya%20akan%20hadir%20di%20acara%20pernikahan%20kalian!"
-         class="wa-button" target="_blank">Konfirmasi via WhatsApp</a>
+      <a href="https://wa.me/6289611502974?text=Halo%20Fiqry%20%26%20Bunga,%20saya%20akan%20hadir%20di%20acara%20pernikahan%20kalian!" class="wa-button" target="_blank">Konfirmasi via WhatsApp</a>
     </div>
 
     <footer>
@@ -228,6 +91,7 @@
     </footer>
   </section>
 
+  <!-- Tambahan JS untuk musik & bunga jatuh overlay -->
   <script>
     // Musik & tombol buka undangan
     const openBtn = document.getElementById("openInvitation");
@@ -246,13 +110,32 @@
       else if(content.style.display === "block") music.play();
     });
 
-    // ===== Partikel Bunga Jatuh =====
+    // ===== Bunga jatuh overlay =====
+    const colors = ['#ffb6c1', '#ffc0cb', '#ff69b4', '#ff82ab', '#ff99c8'];
+
     for (let i = 0; i < 40; i++) {
       const petal = document.createElement('div');
       petal.className = 'petal';
+      
+      // posisi horizontal acak
       petal.style.left = Math.random() * window.innerWidth + 'px';
-      petal.style.animationDuration = 4 + Math.random() * 3 + 's';
+      
+      // ukuran acak
+      const size = 15 + Math.random() * 15;
+      petal.style.width = size + 'px';
+      petal.style.height = size + 'px';
+      
+      // warna acak
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      petal.style.background = `radial-gradient(circle at 30% 30%, ${color} 0%, ${color} 80%)`;
+      
+      // durasi dan delay animasi acak
+      petal.style.animationDuration = 3 + Math.random() * 3 + 's';
       petal.style.animationDelay = Math.random() * 5 + 's';
+      
+      // rotasi acak awal
+      petal.style.transform = `rotate(${Math.random()*360}deg)`;
+
       document.body.appendChild(petal);
     }
   </script>

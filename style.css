@@ -150,6 +150,53 @@ button:hover {
   box-shadow: 0 4px 10px rgba(207, 160, 122, 0.3);
 }
 
+.rsvp {
+  background-color: #fffaf7;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-top: 30px;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  padding: 10px 12px;
+  border: 1px solid #e0c5b5;
+  border-radius: 10px;
+  font-size: 1em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.rsvp-form button {
+  background-color: #d3a57c;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.rsvp-form button:hover {
+  background-color: #b68660;
+}
+
+.rsvp-message {
+  text-align: center;
+  margin-top: 10px;
+  color: #4a4a4a;
+  font-style: italic;
+}
+
 footer {
   text-align: center;
   padding: 30px;

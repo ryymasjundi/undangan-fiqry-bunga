@@ -1,30 +1,51 @@
-// ambil elemen
-const openBtn = document.getElementById("openInvitation");
-const openingScreen = document.getElementById("openingScreen");
-const content = document.getElementById("content");
-const music = document.getElementById("music"); // ambil dari HTML
+```javascript
+const music = document.getElementById("music");
 
-// nama tamu dari URL ?to=Nama
-const params = new URLSearchParams(window.location.search);
-const guestName = params.get("to") || "Tamu Undangan";
-document.getElementById("guestName").innerHTML = `Kepada Yth.<br>${guestName}`;
+function openInvite() {
+  document.getElementById("opening").style.display = "none";
+  document.getElementById("content").style.display = "block";
 
-// buka undangan
-openBtn.addEventListener("click", () => {
-  openingScreen.classList.add("fade-out");
+  // fade in music
+  music.volume = 0;
+  music.play();
 
-  setTimeout(() => {
-    openingScreen.style.display = "none";
-    content.style.display = "block";
-    music.play().catch(err => console.log("Autoplay blocked:", err));
-  }, 1000);
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 1) {
+      vol += 0.05;
+      music.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+
+  AOS.init();
+}
+
+// pause saat tab pindah
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) music.pause();
+  else music.play();
 });
 
-// === Pause music saat tab tidak aktif ===
-document.addEventListener("visibilitychange", function() {
-  if (document.hidden) {
-    music.pause();
-  } else {
-    music.play();
-  }
-});
+/* =========================
+   GOOGLE SHEETS INTEGRATION
+   ========================= */
+
+const scriptURL = "ISI_URL_WEB_APP_KAMU";
+
+function kirimRSVP() {
+  const data = {
+    nama: document.getElementById("nama").value,
+    hadir: document.getElementById("hadir").value,
+    pesan: document.getElementById("pesan").value
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(() => alert("Terkirim!"))
+  .catch(() => alert("Gagal kirim"));
+}
+```
